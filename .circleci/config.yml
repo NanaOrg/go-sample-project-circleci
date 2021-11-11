@@ -1,0 +1,18 @@
+version: 2.1
+
+jobs:
+  meterian-scan:
+    docker:
+      - image: meterian/cli:latest
+    working_directory: /workspace
+    steps:
+      - checkout
+      - run: |
+            go env -w GOPRIVATE="github.com/n-insaidoo,bitbucket.org/n-insaidoo,gitlab.com/n-insaidoo"
+            /root/entrypoint.sh
+
+workflows:
+  version: 2
+  commit-workflow:
+    jobs:
+      - meterian-scan
