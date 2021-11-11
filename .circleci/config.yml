@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run: |
             go env -w GOPRIVATE="github.com/n-insaidoo,bitbucket.org/n-insaidoo,gitlab.com/n-insaidoo"
-            /root/entrypoint.sh
+            /root/entrypoint.sh --debug
 
 workflows:
   version: 2
